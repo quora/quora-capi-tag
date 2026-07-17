@@ -1,0 +1,5 @@
+homepage: 'https://github.com/quora/quora-capi-tag'
+documentation: 'https://github.com/quora/quora-capi-tag'
+# Add the commit SHA of each released version below to publish it to the
+# Community Template Gallery. Populated after the first commit (Phase 5).
+versions: []
