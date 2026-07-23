@@ -557,7 +557,7 @@ scenarios:
     const parsed = JSON.parse(capturedBody);
     assertThat(parsed.conversion.event_name).isEqualTo('ViewContent');
     assertThat(parsed.conversion.click_id).isEqualTo('cookie-qclid');
-- name: Required consent "denied" blocks the send
+- name: Required consent that is denied blocks the send
   code: |-
     mock('getAllEventData', () => {
       return {
@@ -579,7 +579,7 @@ scenarios:
 
     assertApi('sendHttpRequest').wasNotCalled();
     assertThat(success).isEqualTo(true);
-- name: Required consent "granted" allows the send
+- name: Required consent that is granted allows the send
   code: |-
     mock('getCookieValues', () => []);
     mock('getRequestHeader', () => undefined);
