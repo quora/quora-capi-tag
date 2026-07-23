@@ -455,9 +455,7 @@ scenarios:
       accountId: '999',
       accessToken: 'tok',
       eventType: 'inherit',
-      adStorageConsent: 'optional',
-      gtmOnSuccess: () => {},
-      gtmOnFailure: () => {}
+      adStorageConsent: 'optional'
     });
 
     assertApi('sendHttpRequest').wasCalled();
@@ -489,9 +487,7 @@ scenarios:
       accountId: '5',
       accessToken: 't',
       eventType: 'inherit',
-      adStorageConsent: 'optional',
-      gtmOnSuccess: () => {},
-      gtmOnFailure: () => {}
+      adStorageConsent: 'optional'
     });
 
     assertApi('sendHttpRequest').wasCalled();
@@ -518,9 +514,7 @@ scenarios:
       accessToken: 't',
       eventType: 'standard',
       eventName: 'Search',
-      adStorageConsent: 'optional',
-      gtmOnSuccess: () => {},
-      gtmOnFailure: () => {}
+      adStorageConsent: 'optional'
     });
 
     const parsed = JSON.parse(capturedBody);
@@ -549,9 +543,7 @@ scenarios:
       accountId: '5',
       accessToken: 't',
       eventType: 'inherit',
-      adStorageConsent: 'optional',
-      gtmOnSuccess: () => {},
-      gtmOnFailure: () => {}
+      adStorageConsent: 'optional'
     });
 
     const parsed = JSON.parse(capturedBody);
@@ -567,18 +559,15 @@ scenarios:
     });
     mock('sendHttpRequest', () => {});
 
-    let success = false;
     runCode({
       accountId: '5',
       accessToken: 't',
       eventType: 'inherit',
-      adStorageConsent: 'required',
-      gtmOnSuccess: () => { success = true; },
-      gtmOnFailure: () => {}
+      adStorageConsent: 'required'
     });
 
     assertApi('sendHttpRequest').wasNotCalled();
-    assertThat(success).isEqualTo(true);
+    assertApi('gtmOnSuccess').wasCalled();
 - name: Required consent that is granted allows the send
   code: |-
     mock('getCookieValues', () => []);
@@ -598,9 +587,7 @@ scenarios:
       accountId: '5',
       accessToken: 't',
       eventType: 'inherit',
-      adStorageConsent: 'required',
-      gtmOnSuccess: () => {},
-      gtmOnFailure: () => {}
+      adStorageConsent: 'required'
     });
 
     assertApi('sendHttpRequest').wasCalled();
@@ -624,9 +611,7 @@ scenarios:
       accountId: '5',
       accessToken: 't',
       eventType: 'inherit',
-      adStorageConsent: 'optional',
-      gtmOnSuccess: () => {},
-      gtmOnFailure: () => {}
+      adStorageConsent: 'optional'
     });
 
     const parsed = JSON.parse(capturedBody);
