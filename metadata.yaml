@@ -1,5 +1,8 @@
 homepage: 'https://github.com/quora/quora-capi-tag'
 documentation: 'https://github.com/quora/quora-capi-tag'
-# Add the commit SHA of each released version below to publish it to the
-# Community Template Gallery. Populated after the first commit (Phase 5).
-versions: []
+# Each entry publishes the template.tpl at that commit to the Community
+# Template Gallery. To release an update: commit the change, then append the
+# new commit SHA here.
+versions:
+  - sha: 877aac58acfd24fa598a8bd20949fa5b06588cc7
+    changeNotes: Initial release.
